@@ -20,3 +20,5 @@ spring:
   output:
     ansi:
       enabled: detect
+  main:
+    allow-bean-definition-overriding: true
