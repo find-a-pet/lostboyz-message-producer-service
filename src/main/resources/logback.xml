@@ -2,7 +2,7 @@
 <configuration>
     <property name="SENT_EMAILS_LOG" value="logs/emails_sent/emails_sent.log"/>
 
-    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${SENT_EMAILS_LOG}</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -14,7 +14,7 @@
             <maxFileSize>10MB</maxFileSize>
 
             <!--Delete old files after all log files total up  to a terabyte-->
-            <totalSizeCap>1TB</totalSizeCap>
+            <totalSizeCap>1000GB</totalSizeCap>
 
             <!-- Keep files for a 1000 days-->
             <maxHistory>1000</maxHistory>
