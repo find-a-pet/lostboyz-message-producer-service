@@ -8,7 +8,7 @@ info:
     name: ${spring.application.name}
     version: ${spring.application.version}
 
-servlet:
+server:
   port: 14002
 
 spring:
@@ -20,5 +20,3 @@ spring:
   output:
     ansi:
       enabled: detect
-  main:
-    allow-bean-definition-overriding: true

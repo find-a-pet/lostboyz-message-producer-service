@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <configuration>
     <property name="SENT_EMAILS_LOG" value="logs/emails_sent/emails_sent.log"/>
+    <property name="LOSTBOYZ_QUEUE_SERVICE_LOG" value="logs/lostboyz-queue-service.log"/>
 
     <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${SENT_EMAILS_LOG}</file>
@@ -25,7 +26,20 @@
         </encoder>
     </appender>
 
+<!--    <appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<file>${LOSTBOYZ_QUEUE_SERVICE_LOG}</file>
+        <immediateFlush>false</immediateFlush>-->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
     <logger name="com.mtotowamkwe.lostboyzqueueservice.api.impl" level="info" additivity="false">
         <appender-ref ref="ROLLING_FILE"/>
     </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
 </configuration>

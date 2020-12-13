@@ -1,10 +1,14 @@
 package com.mtotowamkwe.lostboyzqueueservice.api.impl;
 
+import com.mtotowamkwe.lostboyzqueueservice.api.MessageProducer;
 import com.mtotowamkwe.lostboyzqueueservice.api.ReceivePayloadToEnqueueService;
 import com.mtotowamkwe.lostboyzqueueservice.exception.MessageNotEnqueuedException;
+import com.mtotowamkwe.lostboyzqueueservice.model.ReceiverPayload;
 import com.mtotowamkwe.lostboyzqueueservice.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
@@ -19,17 +23,27 @@ public class ReceivePayloadToEnqueueServiceImpl implements ReceivePayloadToEnque
 
     private static final Logger LOG = LoggerFactory.getLogger(ReceivePayloadToEnqueueServiceImpl.class);
 
-    private MessageProducerImpl producer = new MessageProducerImpl();
+    private final MessageProducer producer;
+
+    public ReceivePayloadToEnqueueServiceImpl(MessageProducer producer) {
+        this.producer = producer;
+    }
 
     @Override
     @PostMapping(Constants.API_MESSAGE_PRODUCER_ENDPOINT)
-    public ResponseEntity<?> getPayloadToBeEnqueued(@Valid @NonNull @RequestBody String payload) throws MessageNotEnqueuedException {
+    public ResponseEntity<?> getPayloadToBeEnqueued(@Valid @NonNull @RequestBody ReceiverPayload payload)
+            throws MessageNotEnqueuedException {
+
+        // Example payload could be {"payload":"alice@lostboyz.com,123456"}
+        String emailAndVerificationCodePayload = payload.getPayload();
+
         try {
-            producer.send(payload);
+            producer.send(emailAndVerificationCodePayload);
         } catch (MessageNotEnqueuedException mnsexc) {
             LOG.error("A MessageNotEnqueuedException occurred in the method getPayloadToBeEnqueued():\n", mnsexc);
-            throw new MessageNotEnqueuedException(payload, mnsexc.getMessage());
+            throw new MessageNotEnqueuedException(emailAndVerificationCodePayload, mnsexc.getMessage());
         }
+
         return ResponseEntity.ok().build();
     }
 }

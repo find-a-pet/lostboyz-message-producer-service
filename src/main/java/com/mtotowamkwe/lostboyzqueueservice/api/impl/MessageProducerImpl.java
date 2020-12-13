@@ -8,6 +8,7 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 
 public class MessageProducerImpl implements MessageProducer {
 
