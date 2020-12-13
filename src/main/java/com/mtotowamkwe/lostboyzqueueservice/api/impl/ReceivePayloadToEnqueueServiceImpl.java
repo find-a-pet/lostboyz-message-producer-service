@@ -40,7 +40,7 @@ public class ReceivePayloadToEnqueueServiceImpl implements ReceivePayloadToEnque
         try {
             producer.send(emailAndVerificationCodePayload);
         } catch (MessageNotEnqueuedException mnsexc) {
-            LOG.error("A MessageNotEnqueuedException occurred in the method getPayloadToBeEnqueued():\n", mnsexc);
+            LOG.error("MessageNotEnqueuedException @ getPayloadToBeEnqueued():", mnsexc);
             throw new MessageNotEnqueuedException(emailAndVerificationCodePayload, mnsexc.getMessage());
         }
 

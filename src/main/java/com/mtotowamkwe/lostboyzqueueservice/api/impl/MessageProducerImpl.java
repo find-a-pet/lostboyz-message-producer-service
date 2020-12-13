@@ -26,7 +26,7 @@ public class MessageProducerImpl implements MessageProducer {
             template.convertAndSend(exchange.getName(), "payload", message);
             return true;
         } catch (AmqpException ae) {
-            LOG.error("AmqpException occurred in the method send():\n", ae);
+            LOG.error("AmqpException @ send():", ae);
             throw new MessageNotEnqueuedException(message, ae.getMessage());
         }
     }

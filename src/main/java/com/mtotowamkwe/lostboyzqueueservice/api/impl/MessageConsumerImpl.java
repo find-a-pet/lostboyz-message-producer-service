@@ -63,13 +63,5 @@ public class MessageConsumerImpl implements MessageConsumer {
             LOG.error("URISyntaxException @ getUri():", usex);
             throw new DequeuedMessageWasNotEmailedException("Email not sent:\n" + usex.getMessage());
         }
-        /*return UriComponentsBuilder
-                .newInstance()
-                .scheme("http")
-                .host("localhost")
-                .port(14000)
-                .path("/api/v1/email")
-                .build()
-                .toUri();*/
     }
 }
