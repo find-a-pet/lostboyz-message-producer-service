@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class UserEmailTemplate {
 
+    private String email;
     private String code;
-    private String emailAddress;
 }
