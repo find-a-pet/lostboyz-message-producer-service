@@ -3,6 +3,7 @@ package com.mtotowamkwe.lostboyzqueueservice.api.impl;
 import com.mtotowamkwe.lostboyzqueueservice.api.MessageConsumer;
 import com.mtotowamkwe.lostboyzqueueservice.exception.DequeuedMessageWasNotEmailedException;
 import com.mtotowamkwe.lostboyzqueueservice.model.UserEmailTemplate;
+import com.mtotowamkwe.lostboyzqueueservice.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -10,7 +11,6 @@ import org.springframework.http.*;
 import org.springframework.http.HttpStatus.Series;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -35,7 +35,7 @@ public class MessageConsumerImpl implements MessageConsumer {
 
         try {
             ResponseEntity<UserEmailTemplate> responseEntity = template
-                    .postForEntity(getUri(),
+                    .postForEntity(getUri(Constants.LOSTBOYZ_EMAIL_SERVICE_URL),
                             new HttpEntity<>(userEmailTemplate, headers),
                             UserEmailTemplate.class);
 
@@ -55,9 +55,9 @@ public class MessageConsumerImpl implements MessageConsumer {
 
     }
 
-    private URI getUri() throws DequeuedMessageWasNotEmailedException {
+    URI getUri(String emailServiceUrl) throws DequeuedMessageWasNotEmailedException {
         try {
-            URI url = new URI("http://127.0.0.1:14000/api/v1/email");
+            URI url = new URI(emailServiceUrl);
             return url;
         } catch (URISyntaxException usex) {
             LOG.error("URISyntaxException @ getUri():", usex);
