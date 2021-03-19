@@ -34,16 +34,14 @@ public class ReceivePayloadToEnqueueServiceImpl implements ReceivePayloadToEnque
     public ResponseEntity<?> getPayloadToBeEnqueued(@Valid @NonNull @RequestBody ReceiverPayload payload)
             throws MessageNotEnqueuedException {
 
-        // Example payload could be {"payload":"alice@lostboyz.com,123456"}
+        // Example payload:- {"payload":"alice@lostboyz.com,123456"}
         String emailAndVerificationCodePayload = payload.getPayload();
 
         try {
-            producer.send(emailAndVerificationCodePayload);
+            return producer.send(emailAndVerificationCodePayload);
         } catch (MessageNotEnqueuedException mnsexc) {
             LOG.error("MessageNotEnqueuedException @ getPayloadToBeEnqueued():", mnsexc);
             throw new MessageNotEnqueuedException(emailAndVerificationCodePayload, mnsexc.getMessage());
         }
-
-        return ResponseEntity.ok().build();
     }
 }

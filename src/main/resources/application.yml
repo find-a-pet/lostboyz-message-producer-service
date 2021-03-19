@@ -20,3 +20,6 @@ spring:
   output:
     ansi:
       enabled: detect
+  rabbitmq:
+    template:
+      routing-key: payload

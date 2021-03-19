@@ -8,7 +8,8 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 public class MessageProducerImpl implements MessageProducer {
 
@@ -21,10 +22,10 @@ public class MessageProducerImpl implements MessageProducer {
     private DirectExchange exchange;
 
     @Override
-    public boolean send(String message) throws MessageNotEnqueuedException {
+    public ResponseEntity<Boolean> send(String message) throws MessageNotEnqueuedException {
         try {
             template.convertAndSend(exchange.getName(), "payload", message);
-            return true;
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (AmqpException ae) {
             LOG.error("AmqpException @ send():", ae);
             throw new MessageNotEnqueuedException(message, ae.getMessage());

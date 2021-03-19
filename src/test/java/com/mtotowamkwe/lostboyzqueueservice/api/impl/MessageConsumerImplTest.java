@@ -4,7 +4,6 @@ import com.mtotowamkwe.lostboyzqueueservice.api.MessageConsumer;
 import com.mtotowamkwe.lostboyzqueueservice.exception.DequeuedMessageWasNotEmailedException;
 import com.mtotowamkwe.lostboyzqueueservice.model.UserEmailTemplate;
 import com.mtotowamkwe.lostboyzqueueservice.util.Constants;
-import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,8 +31,6 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MessageConsumerImplTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MessageConsumerImplTest.class);
-
     private String badUrl;
 
     private String goodUrl;
@@ -49,7 +46,7 @@ public class MessageConsumerImplTest {
     private MessageConsumerImpl consumerImpl;
 
     @Before
-    public void setUp() throws JSONException {
+    public void setUp() {
         goodUrl = Constants.LOSTBOYZ_EMAIL_SERVICE_URL;
         badUrl = Constants.TEST_BAD_LOSTBOYZ_EMAIL_SERVICE_URL;
         server = MockRestServiceServer.createServer(template);
@@ -119,7 +116,7 @@ public class MessageConsumerImplTest {
                         .contentType(new MediaType("application", "hal+json")));
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setContentType(MediaType.APPLICATION_JSON);;
 
         UserEmailTemplate uet = new UserEmailTemplate();
         uet.setEmail("alice@lostboyz.com");

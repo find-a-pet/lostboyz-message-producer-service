@@ -1,6 +1,7 @@
 package com.mtotowamkwe.lostboyzqueueservice.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -12,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@ComponentScan({"com.mtotowamkwe.lostboyzqueueservice"})
 public class Swagger {
 
     private final Environment environment;
