@@ -1,8 +1,6 @@
-package com.mtotowamkwe.lostboyzqueueservice.api.impl;
+package com.mtotowamkwe.lostboyzmessageproducerservice.api.impl;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ReceivePayloadToEnqueueServiceImplTest {
 

@@ -13,9 +13,9 @@ server:
 
 spring:
   application:
-    description: Lostboyz queue service
-    id: lostboyz-queue-service
-    name: lostboyz-queue-service
+    description: Lostboyz message producer service
+    id: lostboyz-message-producer-service
+    name: lostboyz-message-producer-service
     version: 0.0.1-SNAPSHOT
   output:
     ansi:

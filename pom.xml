@@ -11,8 +11,8 @@
 	<groupId>com.mtotowamkwe</groupId>
 	<artifactId>lostboyz-queue-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lostboyz-queue-service</name>
-	<description>A Spring Boot microservice using RabbitMQ to publish and retrieve messages from a queue.</description>
+	<name>lostboyz-message-producer-service</name>
+	<description>A spring boot microservice using RabbitMQ to publish messages to a queue.</description>
 
 	<properties>
 		<java.version>11</java.version>

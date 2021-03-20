@@ -1,10 +1,10 @@
-package com.mtotowamkwe.lostboyzqueueservice;
+package com.mtotowamkwe.lostboyzmessageproducerservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LostboyzQueueServiceApplicationTests {
+class LostboyzMessageProducerServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

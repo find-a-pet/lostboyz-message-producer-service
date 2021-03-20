@@ -1,20 +1,21 @@
-package com.mtotowamkwe.lostboyzqueueservice.api.impl;
+package com.mtotowamkwe.lostboyzmessageproducerservice.api.impl;
 
-import com.mtotowamkwe.lostboyzqueueservice.api.MessageProducer;
-import com.mtotowamkwe.lostboyzqueueservice.api.ReceivePayloadToEnqueueService;
-import com.mtotowamkwe.lostboyzqueueservice.exception.MessageNotEnqueuedException;
-import com.mtotowamkwe.lostboyzqueueservice.model.ReceiverPayload;
-import com.mtotowamkwe.lostboyzqueueservice.util.Constants;
+import com.mtotowamkwe.lostboyzmessageproducerservice.api.MessageProducer;
+import com.mtotowamkwe.lostboyzmessageproducerservice.api.ReceivePayloadToEnqueueService;
+import com.mtotowamkwe.lostboyzmessageproducerservice.exception.MessageNotEnqueuedException;
+import com.mtotowamkwe.lostboyzmessageproducerservice.model.ReceiverPayload;
+import com.mtotowamkwe.lostboyzmessageproducerservice.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 @Service

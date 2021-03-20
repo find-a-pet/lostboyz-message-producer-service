@@ -1,4 +1,4 @@
-package com.mtotowamkwe.lostboyzqueueservice.exception;
+package com.mtotowamkwe.lostboyzmessageproducerservice.exception;
 
 public class DequeuedMessageWasNotEmailedException extends Throwable {
 

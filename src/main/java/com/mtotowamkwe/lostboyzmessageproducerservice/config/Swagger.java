@@ -1,4 +1,4 @@
-package com.mtotowamkwe.lostboyzqueueservice.config;
+package com.mtotowamkwe.lostboyzmessageproducerservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan({"com.mtotowamkwe.lostboyzqueueservice"})
+@ComponentScan({"com.mtotowamkwe.lostboyzmessageproducerservice"})
 public class Swagger {
 
     private final Environment environment;

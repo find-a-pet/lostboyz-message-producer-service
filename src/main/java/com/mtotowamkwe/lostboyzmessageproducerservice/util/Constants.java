@@ -1,4 +1,4 @@
-package com.mtotowamkwe.lostboyzqueueservice.util;
+package com.mtotowamkwe.lostboyzmessageproducerservice.util;
 
 public class Constants {
 

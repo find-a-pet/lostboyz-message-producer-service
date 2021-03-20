@@ -1,4 +1,4 @@
-package com.mtotowamkwe.lostboyzqueueservice.model;
+package com.mtotowamkwe.lostboyzmessageproducerservice.model;
 
 import lombok.Data;
 

@@ -1,13 +1,10 @@
-package com.mtotowamkwe.lostboyzqueueservice.api.impl;
+package com.mtotowamkwe.lostboyzmessageproducerservice.api.impl;
 
-import com.mtotowamkwe.lostboyzqueueservice.api.MessageProducer;
-import com.mtotowamkwe.lostboyzqueueservice.config.ConsumerConfig;
-import com.mtotowamkwe.lostboyzqueueservice.config.ProducerConfig;
-import com.mtotowamkwe.lostboyzqueueservice.config.Swagger;
-import com.mtotowamkwe.lostboyzqueueservice.util.Constants;
+import com.mtotowamkwe.lostboyzmessageproducerservice.api.MessageProducer;
+import com.mtotowamkwe.lostboyzmessageproducerservice.config.ProducerConfig;
+import com.mtotowamkwe.lostboyzmessageproducerservice.util.Constants;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -15,31 +12,24 @@ import org.mockito.Mockito;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.platform.commons.logging.LoggerFactory.getLogger;
 import static org.mockito.ArgumentMatchers.eq;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ProducerConfig.class, ConsumerConfig.class})
-@SpringBootTest(classes = {MessageProducerImpl.class})
+@ContextConfiguration(classes = {ProducerConfig.class})
 public class MessageProducerImplTest {
 
     @Mock
     private RabbitTemplate rabbitTemplateMock;
 
-    @Autowired
+    @Mock
     private DirectExchange exchange;
 
     @Mock

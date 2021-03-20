@@ -1,7 +1,7 @@
-package com.mtotowamkwe.lostboyzqueueservice.api.impl;
+package com.mtotowamkwe.lostboyzmessageproducerservice.api.impl;
 
-import com.mtotowamkwe.lostboyzqueueservice.api.MessageProducer;
-import com.mtotowamkwe.lostboyzqueueservice.exception.MessageNotEnqueuedException;
+import com.mtotowamkwe.lostboyzmessageproducerservice.api.MessageProducer;
+import com.mtotowamkwe.lostboyzmessageproducerservice.exception.MessageNotEnqueuedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.AmqpException;

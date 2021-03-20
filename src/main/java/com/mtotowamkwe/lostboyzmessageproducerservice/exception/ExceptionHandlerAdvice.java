@@ -1,4 +1,4 @@
-package com.mtotowamkwe.lostboyzqueueservice.exception;
+package com.mtotowamkwe.lostboyzmessageproducerservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

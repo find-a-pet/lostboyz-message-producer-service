@@ -1,6 +1,6 @@
-package com.mtotowamkwe.lostboyzqueueservice.api;
+package com.mtotowamkwe.lostboyzmessageproducerservice.api;
 
-import com.mtotowamkwe.lostboyzqueueservice.exception.MessageNotEnqueuedException;
+import com.mtotowamkwe.lostboyzmessageproducerservice.exception.MessageNotEnqueuedException;
 import org.springframework.http.ResponseEntity;
 
 public interface MessageProducer {
