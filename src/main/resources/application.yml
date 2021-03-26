@@ -21,9 +21,8 @@ spring:
     ansi:
       enabled: detect
   rabbitmq:
-    template:
-      routing-key: payload
     host: ${CLOUDAMQP_HOST}
-    port: 5672
     username: ${CLOUDAMQP_USERNAME}
     password: ${CLOUDAMQP_PASSWORD}
+    virtual-host: ${CLOUDAMQP_VIRTUAL_HOST}
+    port: 5672
